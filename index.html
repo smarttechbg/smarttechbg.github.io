@@ -5,135 +5,145 @@
   <title>SmartTech – IT услуги</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
+    :root {
+      --bg: #020617;
+      --card: #020617;
+      --border: #1e293b;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+    }
+
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: url("https://images.unsplash.com/photo-1518770660439-4636190af475") no-repeat center center fixed;
-      background-size: cover;
-      color: white;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #0f172a, #020617);
+      color: var(--text);
     }
 
     header {
-      background: linear-gradient(rgba(15,23,42,0.9), rgba(15,23,42,0.9)),
-                  url("https://images.unsplash.com/photo-1519389950473-47ba0277781c");
-      background-size: cover;
+      padding: 90px 20px 70px;
       text-align: center;
-      padding: 80px 20px;
+      border-bottom: 1px solid var(--border);
     }
 
     header h1 {
+      font-size: 48px;
       margin: 0;
-      font-size: 42px;
+      letter-spacing: 1px;
+    }
+
+    header h1 span {
+      color: var(--accent);
     }
 
     header p {
+      margin-top: 12px;
       font-size: 18px;
-      opacity: 0.9;
+      color: var(--muted);
     }
 
     section {
       max-width: 1000px;
-      margin: 40px auto;
+      margin: 60px auto;
       padding: 0 20px;
     }
 
-    /* SERVICES */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
     .service {
-      height: 180px;
-      border-radius: 18px;
-      margin-bottom: 25px;
-      background-size: cover;
-      background-position: center;
+      background: linear-gradient(180deg, #020617, #020617);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 26px;
+      text-decoration: none;
+      color: var(--text);
+      transition: transform .3s, border-color .3s;
       position: relative;
       overflow: hidden;
-      text-decoration: none;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-      transition: transform 0.3s;
-      display: block;
+    }
+
+    .service::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.15), transparent 60%);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    .service:hover::before {
+      opacity: 1;
     }
 
     .service:hover {
-      transform: scale(1.03);
+      transform: translateY(-6px);
+      border-color: var(--accent);
     }
 
-    .service .overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(15,23,42,0.8);
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
+    .service i {
+      font-size: 30px;
+      color: var(--accent);
+      margin-bottom: 16px;
     }
 
     .service h3 {
-      margin: 0;
-      font-size: 22px;
+      margin: 0 0 8px;
+      font-size: 20px;
     }
 
     .service p {
-      margin: 5px 0 0;
+      margin: 0;
       font-size: 14px;
-      opacity: 0.85;
+      color: var(--muted);
+      line-height: 1.5;
     }
 
-    /* BACKGROUNDS PER SERVICE */
-    .internet {
-      background-image: url("https://images.unsplash.com/photo-1558494949-ef010cbdcc31");
-    }
-
-    .camera {
-      background-image: url("https://images.unsplash.com/photo-1581090700227-1e37b190418e");
-    }
-
-    .access {
-      background-image: url("https://images.unsplash.com/photo-1629904853893-c2c8981a1dc5");
-    }
-
-    .support {
-      background-image: url("https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04");
-    }
-
-    /* CONTACTS */
     .contacts {
-      background: rgba(15,23,42,0.9);
+      margin-top: 60px;
+      padding: 30px;
+      border: 1px solid var(--border);
       border-radius: 18px;
-      padding: 25px;
       text-align: center;
-      margin-top: 40px;
+      background: linear-gradient(180deg, #020617, #020617);
     }
 
     .contacts p {
-      margin: 10px 0;
+      margin: 0 0 18px;
       font-size: 18px;
     }
 
     .contacts a {
       display: inline-block;
-      margin: 10px;
+      margin: 8px;
       padding: 12px 18px;
-      border-radius: 8px;
-      background: #1e293b;
-      color: white;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      color: var(--text);
       text-decoration: none;
-      font-size: 16px;
-      transition: transform 0.3s, background 0.3s;
+      transition: background .3s, transform .3s, border-color .3s;
     }
 
     .contacts a:hover {
-      background: #334155;
-      transform: scale(1.05);
+      background: rgba(56,189,248,0.1);
+      transform: translateY(-2px);
+      border-color: var(--accent);
     }
 
     footer {
+      border-top: 1px solid var(--border);
+      padding: 24px;
       text-align: center;
-      padding: 20px;
-      background: rgba(15,23,42,0.95);
-      margin-top: 40px;
+      color: var(--muted);
       font-size: 14px;
     }
   </style>
@@ -142,39 +152,38 @@
 <body>
 
 <header>
-  <h1>SmartTech</h1>
+  <h1>Smart<span>Tech</span></h1>
   <p>Интернет • Камери • Контрол на достъп • IT поддръжка</p>
 </header>
 
 <section>
+  <div class="services">
 
-  <a href="internet.html" class="service internet">
-    <div class="overlay">
+    <a href="internet.html" class="service">
+      <i class="fas fa-network-wired"></i>
       <h3>Интернет и мрежи</h3>
-      <p>Изграждане и поддръжка на LAN / Wi-Fi мрежи</p>
-    </div>
-  </a>
+      <p>LAN, Wi-Fi, рутери, суичове и мрежова поддръжка</p>
+    </a>
 
-  <a href="cameras.html" class="service camera">
-    <div class="overlay">
+    <a href="cameras.html" class="service">
+      <i class="fas fa-video"></i>
       <h3>Видеонаблюдение</h3>
-      <p>IP камери, DVR/NVR, отдалечен достъп</p>
-    </div>
-  </a>
+      <p>IP камери, DVR/NVR системи и отдалечен достъп</p>
+    </a>
 
-  <a href="access.html" class="service access">
-    <div class="overlay">
-      <h3>Контрол на достъп и бариери</h3>
-      <p>Бариери, чипове, карти, домофони</p>
-    </div>
-  </a>
+    <a href="access.html" class="service">
+      <i class="fas fa-door-closed"></i>
+      <h3>Контрол на достъп</h3>
+      <p>Бариери, карти, чипове и домофони</p>
+    </a>
 
-  <a href="support.html" class="service support">
-    <div class="overlay">
+    <a href="support.html" class="service">
+      <i class="fas fa-laptop"></i>
       <h3>IT поддръжка</h3>
       <p>Компютри, лаптопи, софтуер и хардуер</p>
-    </div>
-  </a>
+    </a>
+
+  </div>
 
   <div class="contacts">
     <p><strong>Телефон:</strong> 0888 123 456</p>
@@ -182,7 +191,6 @@
     <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
     <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
   </div>
-
 </section>
 
 <footer>
