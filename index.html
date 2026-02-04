@@ -115,4 +115,79 @@
     .contacts a {
       display: inline-block;
       margin: 10px;
-      padding: 1
+      padding: 12px 18px;
+      border-radius: 8px;
+      background: #1e293b;
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .contacts a:hover {
+      background: #334155;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(15,23,42,0.95);
+      margin-top: 40px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>SmartTech</h1>
+  <p>Интернет • Камери • Контрол на достъп • IT поддръжка</p>
+</header>
+
+<section>
+
+  <a href="internet.html" class="service internet">
+    <div class="overlay">
+      <h3>Интернет и мрежи</h3>
+      <p>Изграждане и поддръжка на LAN / Wi-Fi мрежи</p>
+    </div>
+  </a>
+
+  <a href="cameras.html" class="service camera">
+    <div class="overlay">
+      <h3>Видеонаблюдение</h3>
+      <p>IP камери, DVR/NVR, отдалечен достъп</p>
+    </div>
+  </a>
+
+  <a href="access.html" class="service access">
+    <div class="overlay">
+      <h3>Контрол на достъп и бариери</h3>
+      <p>Бариери, чипове, карти, домофони</p>
+    </div>
+  </a>
+
+  <a href="support.html" class="service support">
+    <div class="overlay">
+      <h3>IT поддръжка</h3>
+      <p>Компютри, лаптопи, софтуер и хардуер</p>
+    </div>
+  </a>
+
+  <div class="contacts">
+    <p><strong>Телефон:</strong> 0888 123 456</p>
+    <a href="tel:0888123456"><i class="fas fa-phone"></i> Обади се</a>
+    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+  </div>
+
+</section>
+
+<footer>
+  © 2026 SmartTech
+</footer>
+
+</body>
+</html>
