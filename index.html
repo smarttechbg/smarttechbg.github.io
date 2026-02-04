@@ -6,7 +6,6 @@
   <!-- Font Awesome за иконки -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    /* Body & Header */
     body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f4; }
     header { 
       background: linear-gradient(135deg, #0f172a, #1e293b);
@@ -17,7 +16,6 @@
     header h1 { margin: 0; font-size: 36px; animation: fadeIn 1s; }
     header p { margin: 5px 0 0 0; font-size: 18px; animation: fadeIn 1.5s; }
 
-    /* Fade-in animation */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -25,7 +23,6 @@
 
     section { padding: 20px; max-width: 900px; margin: auto; }
 
-    /* Услуги */
     .service {
       background: #ffffff;
       padding: 15px;
@@ -36,7 +33,7 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       transition: transform 0.3s, background 0.3s;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 15px;
       animation: fadeIn 0.8s;
     }
@@ -44,17 +41,18 @@
       background: #e2e8f0;
       transform: translateY(-3px);
     }
-    .service img { width: 50px; height: 50px; border-radius: 8px; }
+    .service img { width: 50px; height: 50px; border-radius: 8px; margin-top: 5px; }
 
+    .service-content { flex: 1; }
     .service p {
-      display: none;
-      margin: 10px 0 0 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+      margin: 5px 0 0 0;
       font-size: 14px;
       line-height: 1.5;
-      flex: 1;
     }
 
-    /* Контакти */
     .contacts {
       background: #ffffff;
       padding: 20px;
@@ -96,7 +94,7 @@
 <section>
   <div class="service" onclick="toggle(this)">
     <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" alt="Интернет">
-    <div>
+    <div class="service-content">
       <h3>Интернет и мрежи</h3>
       <p>Изграждане и поддръжка на кабелни и безжични мрежи, рутери, суичове и интернет свързаност.</p>
     </div>
@@ -104,7 +102,7 @@
 
   <div class="service" onclick="toggle(this)">
     <img src="https://cdn-icons-png.flaticon.com/512/565/565547.png" alt="Камери">
-    <div>
+    <div class="service-content">
       <h3>Видеонаблюдение и камери</h3>
       <p>Монтаж и настройка на IP и аналогови камери, DVR/NVR системи и отдалечен достъп.</p>
     </div>
@@ -112,7 +110,7 @@
 
   <div class="service" onclick="toggle(this)">
     <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Бариери">
-    <div>
+    <div class="service-content">
       <h3>Бариери и контрол на достъп</h3>
       <p>Инсталация на бариери, чипове, карти, домофони и системи за контрол на достъп.</p>
     </div>
@@ -120,7 +118,7 @@
 
   <div class="service" onclick="toggle(this)">
     <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="Компютри">
-    <div>
+    <div class="service-content">
       <h3>Софтуерна и хардуерна поддръжка</h3>
       <p>Поддръжка на компютри, лаптопи, сървъри, Windows, софтуер и резервни копия.</p>
     </div>
@@ -141,11 +139,13 @@
 <script>
   function toggle(el) {
     const p = el.querySelector("p");
-    if(p.style.maxHeight) {
-      p.style.maxHeight = null;
+    // Ако е отворена → затвори
+    if(p.style.maxHeight && p.style.maxHeight !== "0px") {
+      p.style.maxHeight = "0";
     } else {
-      // Close all others
-      document.querySelectorAll(".service p").forEach(item => { item.style.maxHeight = null; });
+      // Затвори всички други
+      document.querySelectorAll(".service p").forEach(item => item.style.maxHeight = "0");
+      // Отвори текущата
       p.style.maxHeight = p.scrollHeight + "px";
     }
   }
