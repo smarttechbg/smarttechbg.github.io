@@ -4,7 +4,25 @@
   <meta charset="UTF-8">
   <title>SmartTech – IT услуги</title>
   <style>
-    body { font-family: Arial; margin: 0; background: #f4f4f4; }
+    .service {
+  background: #f8fafc;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.service p {
+  display: none;
+  margin-top: 10px;
+}
+    <script>
+  function toggle(el) {
+    const p = el.querySelector("p");
+    p.style.display = p.style.display === "block" ? "none" : "block";
+  }
+</script>
+body { font-family: Arial; margin: 0; background: #f4f4f4; }
     header { background: #0f172a; color: white; padding: 20px; text-align: center; }
     section { padding: 20px; }
     .box { background: white; padding: 15px; margin-bottom: 15px; border-radius: 8px; }
@@ -19,15 +37,25 @@
 </header>
 
 <section>
-  <div class="box">
-    <h2>Услуги</h2>
-    <ul>
-      <li>Интернет и мрежи</li>
-      <li>Видеонаблюдение и камери</li>
-      <li>Бариери и контрол на достъп</li>
-      <li>Софтуерна и хардуерна поддръжка</li>
-    </ul>
-  </div>
+  <div class="service" onclick="toggle(this)">
+  <h3>Интернет и мрежи</h3>
+  <p>Изграждане и поддръжка на кабелни и безжични мрежи, рутери, суичове и интернет свързаност.</p>
+</div>
+
+<div class="service" onclick="toggle(this)">
+  <h3>Видеонаблюдение и камери</h3>
+  <p>Монтаж и настройка на IP и аналогови камери, DVR/NVR системи и отдалечен достъп.</p>
+</div>
+
+<div class="service" onclick="toggle(this)">
+  <h3>Бариери и контрол на достъп</h3>
+  <p>Инсталация на бариери, чипове, карти, домофони и системи за контрол на достъп.</p>
+</div>
+
+<div class="service" onclick="toggle(this)">
+  <h3>Софтуерна и хардуерна поддръжка</h3>
+  <p>Поддръжка на компютри, лаптопи, сървъри, Windows, софтуер и резервни копия.</p>
+</div>
 
   <div class="box">
     <h2>Контакти</h2>
