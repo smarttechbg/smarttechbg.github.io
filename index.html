@@ -6,60 +6,82 @@
   <!-- Font Awesome за иконки -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+    /* Body & Header */
     body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f4; }
-    header { background: #0f172a; color: white; padding: 20px; text-align: center; }
-    header h1 { margin: 0; font-size: 32px; }
-    header p { margin: 5px 0 0 0; font-size: 18px; }
+    header { 
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: white; 
+      padding: 40px 20px; 
+      text-align: center; 
+    }
+    header h1 { margin: 0; font-size: 36px; animation: fadeIn 1s; }
+    header p { margin: 5px 0 0 0; font-size: 18px; animation: fadeIn 1.5s; }
 
-    section { padding: 20px; max-width: 800px; margin: auto; }
-    
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    section { padding: 20px; max-width: 900px; margin: auto; }
+
+    /* Услуги */
     .service {
       background: #ffffff;
       padding: 15px;
-      margin-bottom: 10px;
-      border-radius: 8px;
+      margin-bottom: 15px;
+      border-radius: 12px;
       cursor: pointer;
       font-size: 16px;
-      transition: background 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s, background 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      animation: fadeIn 0.8s;
     }
-    .service:hover { background: #e2e8f0; }
-    
+    .service:hover { 
+      background: #e2e8f0;
+      transform: translateY(-3px);
+    }
+    .service img { width: 50px; height: 50px; border-radius: 8px; }
+
     .service p {
       display: none;
-      margin-top: 10px;
+      margin: 10px 0 0 0;
       font-size: 14px;
       line-height: 1.5;
+      flex: 1;
     }
 
+    /* Контакти */
     .contacts {
       background: #ffffff;
-      padding: 15px;
-      border-radius: 8px;
+      padding: 20px;
+      border-radius: 12px;
       margin-top: 20px;
       text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
     .contacts a {
       display: inline-block;
-      margin: 5px 10px;
+      margin: 8px 10px;
       text-decoration: none;
       color: white;
       background: #0f172a;
       padding: 10px 15px;
-      border-radius: 5px;
+      border-radius: 6px;
       font-size: 16px;
-      transition: background 0.3s;
+      transition: background 0.3s, transform 0.3s;
     }
-    .contacts a:hover { background: #1e293b; }
-
-    .contacts i {
-      margin-right: 8px;
-    }
+    .contacts a:hover { background: #1e293b; transform: scale(1.05); }
+    .contacts i { margin-right: 8px; }
 
     footer {
       background: #0f172a;
       color: white;
       text-align: center;
-      padding: 10px;
+      padding: 12px;
       margin-top: 20px;
     }
   </style>
@@ -73,23 +95,35 @@
 
 <section>
   <div class="service" onclick="toggle(this)">
-    <h3>Интернет и мрежи</h3>
-    <p>Изграждане и поддръжка на кабелни и безжични мрежи, рутери, суичове и интернет свързаност.</p>
+    <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" alt="Интернет">
+    <div>
+      <h3>Интернет и мрежи</h3>
+      <p>Изграждане и поддръжка на кабелни и безжични мрежи, рутери, суичове и интернет свързаност.</p>
+    </div>
   </div>
 
   <div class="service" onclick="toggle(this)">
-    <h3>Видеонаблюдение и камери</h3>
-    <p>Монтаж и настройка на IP и аналогови камери, DVR/NVR системи и отдалечен достъп.</p>
+    <img src="https://cdn-icons-png.flaticon.com/512/565/565547.png" alt="Камери">
+    <div>
+      <h3>Видеонаблюдение и камери</h3>
+      <p>Монтаж и настройка на IP и аналогови камери, DVR/NVR системи и отдалечен достъп.</p>
+    </div>
   </div>
 
   <div class="service" onclick="toggle(this)">
-    <h3>Бариери и контрол на достъп</h3>
-    <p>Инсталация на бариери, чипове, карти, домофони и системи за контрол на достъп.</p>
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Бариери">
+    <div>
+      <h3>Бариери и контрол на достъп</h3>
+      <p>Инсталация на бариери, чипове, карти, домофони и системи за контрол на достъп.</p>
+    </div>
   </div>
 
   <div class="service" onclick="toggle(this)">
-    <h3>Софтуерна и хардуерна поддръжка</h3>
-    <p>Поддръжка на компютри, лаптопи, сървъри, Windows, софтуер и резервни копия.</p>
+    <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="Компютри">
+    <div>
+      <h3>Софтуерна и хардуерна поддръжка</h3>
+      <p>Поддръжка на компютри, лаптопи, сървъри, Windows, софтуер и резервни копия.</p>
+    </div>
   </div>
 
   <div class="contacts">
@@ -107,9 +141,13 @@
 <script>
   function toggle(el) {
     const p = el.querySelector("p");
-    const allP = document.querySelectorAll(".service p");
-    allP.forEach(item => { if(item !== p) item.style.display = "none"; });
-    p.style.display = p.style.display === "block" ? "none" : "block";
+    if(p.style.maxHeight) {
+      p.style.maxHeight = null;
+    } else {
+      // Close all others
+      document.querySelectorAll(".service p").forEach(item => { item.style.maxHeight = null; });
+      p.style.maxHeight = p.scrollHeight + "px";
+    }
   }
 </script>
 
